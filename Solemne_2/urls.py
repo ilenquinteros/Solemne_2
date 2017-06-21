@@ -19,5 +19,5 @@ from Solemne_2.views import hola
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', hola),
+    url(r'^solemne/', include('noticias.urls'),
 ]
