@@ -1,4 +1,5 @@
 {% extends "base/header.html" %}
+{% load thumbnail %}
 {% load static %}
 
   {% block title %}Home{% endblock %}
@@ -8,7 +9,9 @@
       <div class="col-lg-12">
         <h1>{{noticia.titulo_noticia}} <small>{{noticia.categoria.nombre_categoria}}</small></h1>
         <p><em>Fecha publicación: {{noticia.fecha_creacion}}</em></p>
-        <img src="http://placehold.it/200x200" alt="" class="img-responsive img-thumbnail pull-left img-margin-right">
+        {% thumbnail noticia.imagen "200x200" crop="center" as im %}              
+        <img src="{{im.url}}" width="{{im.width}}" height="{{im.height}}" class="img-responsive img-thumbnail pull-left img-margin-right">
+        {% endthumbnail %}
         <p>{{ noticia.descripcion }}</p>
       </div>
     </div>

@@ -23,7 +23,7 @@ class News(models.Model):
     descripcion = models.TextField()
     categoria = models.ForeignKey(Category, null=True)
     destacada = models.BooleanField();
-    imagen = models.ImageField(upload_to='images/data',blank=True,null=True)
+    imagen = models.ImageField(upload_to='images',blank=True,null=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
