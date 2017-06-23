@@ -30,16 +30,15 @@
           </div>
           <div class="col-lg-8">
             <div class="row">
-              {% for noticia in lista_noticias %}
-              {% ifnotequal destacada.id_noticia noticia.id_noticia %}
+              {% for noticia in lista_noticias|slice:":6" %}
               <div class="col-xs-6 col-sm-4">
                 {% thumbnail noticia.imagen "200x100" crop="center" as im %}              
                 <img src="{{im.url}}" width="{{im.width}}" height="{{im.height}}" class="img-thumbnail">
                 {% endthumbnail %}
-                <p><a href="/noticia/id/{{noticia.id_noticia}}">{{noticia.titulo_noticia}} </a></p>
+                <p><a href="/noticia/id/{{noticia.id_noticia}}">
+                {{ noticia.titulo_noticia|truncatechars:"28" }} </a></p>
                 <p><span class="label label-info">{{noticia.categoria.nombre_categoria}}</span></p>
               </div>
-              {% endifnotequal %}
               {% endfor %}
             </div>
           </div>
